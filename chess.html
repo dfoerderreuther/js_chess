@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Chess</title>
+    <link rel='stylesheet' href='stylesheets/style.css' />
+	
+	<!-- http://kineticjs.com/ -->
+	<script src="javascripts/lib/kinetic-v5.0.1.min.js"></script>
+	
+	<!-- http://stringjs.com/ -->
+	<script src="javascripts/lib/string.min.js"></script>
+	
+	<script src="javascripts/chess/Chess.js"></script>
+	<script src="javascripts/chess/Constants.js"></script>
+	<script src="javascripts/chess/Tools.js"></script>
+	<script src="javascripts/chess/Rochade.js"></script>
+	<script src="javascripts/chess/EnPassant.js"></script>
+	<script src="javascripts/chess/Promotion.js"></script>
+	<script src="javascripts/chess/MoveChecker.js"></script>
+	<script src="javascripts/chess/Check.js"></script>
+	<script src="javascripts/chess/FedReader.js"></script>
+	<script src="javascripts/chess/FedWriter.js"></script>
+	
+	<script src="javascripts/ChessLogger.js"></script>
+	
+	<script src="javascripts/ImageLoader.js"></script>
+	<script src="javascripts/KineticBoard.js"></script>
+</head>
+<body>
+    <h1>Chess</h1>
+	<div id="container"></div>
+
+
+	<script defer="defer">
+		var chess = new Chess();
+		
+		// rochade
+		//chess.open('r3k2r/pppnpp1p/3p2p1/5bn1/P7/2N2B2/1PPPPP2/R3K2R b KQkq - 4 11');
+
+		// en passant
+		//chess.open('r3k2r/p1pnpp1p/3p2p1/5bn1/Pp6/2N2B2/1PPPPP2/R3K2R b KQ a3 4 11');
+
+		// bauernumwandlung
+		//chess.open('r3k2r/pPpnpp1p/3p2p1/5bn1/Pp6/2N2B2/1pPPPP2/R3K2R w KQ a3 4 11');
+
+		// schach
+		//chess.open('rnbqk1nr/pppppppp/3N4/8/8/3n4/PPPPPPPP/RNBQK1NR w KQkq - 4 11');
+		//chess.open('---r----/q---P---/--------/--------/--------/----k---/----p---/----K--- w - - 4 11');
+		
+		var kineticBoard = new KineticBoard('container', 40, '', chess);
+		
+		var chessLogger = new ChessLogger(chess);
+		chessLogger.logBoard();
+		//chessLogger.follow();
+
+
+		//var fedwrite = function() {
+		//	var fedWriter = new FedWriter(chess);
+		//	console.log(fedWriter.write());
+		//}
+		//chess.addChangeCallback(fedwrite);
+
+
+
+	</script>
+
+	<!--
+	<hr />
+	<div id="chess2"></div>
+	<script type="text/javascript">
+
+		var chess2 = new Chess();
+		var kineticBoard = new KineticBoard('chess2', 30, '', chess2);
+	</script>
+	-->
+
+</body>
+</html>
+
+
